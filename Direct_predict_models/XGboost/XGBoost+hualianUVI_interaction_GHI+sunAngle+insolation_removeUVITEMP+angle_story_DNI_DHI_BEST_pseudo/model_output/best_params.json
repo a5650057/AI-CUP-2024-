@@ -1,0 +1,13 @@
+{
+    "learning_rate": 0.06651948043726232,
+    "max_depth": 12,
+    "reg_lambda": 0.003016252822732625,
+    "subsample": 0.8020024224177278,
+    "colsample_bytree": 0.8604677317852358,
+    "n_estimators": 900,
+    "random_state": 42,
+    "verbosity": 0,
+    "tree_method": "hist",
+    "device": "cuda",
+    "early_stopping_rounds": 50
+}
