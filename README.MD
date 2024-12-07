@@ -39,7 +39,7 @@
 
 
 4. XGBoost+hualianUVI_interaction_GHI+sunAngle+insolation_removeUVITEMP+angle_story_DNI_DHI_BEST_pseudo
--  (透過上方模型的結果 加入到訓練集後 重新訓練)
+- (透過上方模型的結果 加入到訓練集後 重新訓練)
 
 
 ####  想要複現模型訓練 只需要cd到資料夾內
@@ -127,3 +127,6 @@
 
 
 
+### openweather定時戳中央氣象署API獲得溫度與紫外線
+
+`openweather.py`
