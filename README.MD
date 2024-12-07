@@ -18,6 +18,58 @@
   pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
   ```
 
+### 覆現模型訓練與測試
+
+總共有四個模型
+位於  Direct_predict_models/XGboost/裡面
+
+
+分別是
+
+1. XGBoost+hualianUVI_interaction_GHI+sunAngle+insolation_removeUVITEMP
+
+2. XGBoost+hualianUVI_interaction_GHI+sunAngle+insolation_removeUVITEMP+angle
+-  (相比上方模型增加了太陽能板朝向)
+
+
+3. XGBoost+hualianUVI_interaction_GHI+sunAngle+insolation_removeUVITEMP+angle_story_DNI_DHI_BEST
+-  (相比上方模型 增加了DNI DHI)
+
+
+
+
+4. XGBoost+hualianUVI_interaction_GHI+sunAngle+insolation_removeUVITEMP+angle_story_DNI_DHI_BEST_pseudo
+-  (透過上方模型的結果 加入到訓練集後 重新訓練)
+
+
+####  想要複現模型訓練 只需要cd到資料夾內
+
+1. 執行 `reappear.py`
+- 此腳本會用之前存放好的超參數 以及 交叉驗證用的index 以及 獨熱編碼器重新訓練
+
+2. 訓練完成之後 執行`reappear_test.py`
+
+-  則會使用複現出來的模型去預測測試集結果
+   其結果會存放在reappear_test裡面
+
+3. 接著執行`format_answer.py` 就會進行格式化 
+-  使其符合上傳格式 生成檔案:upload_with_answers.csv
+
+
+#### 由於第四個模型 需要用到第三個模型的結果 以下是產生偽標籤步驟
+
+1. 確認第三個模型已經覆現訓練與測試後，執行 `test_addpseudo.py`
+   會把預測值與特徵結合起來 放到 data/XGBoost_pseudo_labels_traingdata 裡
+
+2. 到 data/XGBoost_pseudo_labels_traingdata 執行 `apply_pseudo_labels.py`
+
+3. 接著就會輸出 L1_Train_pseudo.csv ~ L17_Train_pseudo.csv
+
+4. 接著執行第四個模型的覆現即可
+
+
+
+
 ### 資料前處理
 > 由於需要使用 OpenWeatherMap APIKEY，故直接將處理完的資料放到 `data` 資料夾中，以下僅為步驟說明。
 
@@ -72,3 +124,6 @@
     - `add_angle.py`
     - `add_story.py`
     - `add_GHI_DNI_DHI.py`
+
+
+

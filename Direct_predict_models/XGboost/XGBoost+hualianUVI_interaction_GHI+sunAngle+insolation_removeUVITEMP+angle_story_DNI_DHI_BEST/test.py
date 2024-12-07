@@ -32,7 +32,7 @@ test_df = test_df.sort_values(['LocationCode', 'DateTime']).reset_index(drop=Tru
 
 
 
-merged_test_file = os.path.join(output_dir, 'test_without_GHI.csv')
+merged_test_file = os.path.join(output_dir, 'test_withfeature.csv')
 test_df.to_csv(merged_test_file, index=False, encoding='utf-8-sig')
 print(f"處理後的測試資料已儲存到 {merged_test_file}")
 print("載入訓練特徵名稱...")

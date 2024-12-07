@@ -12,7 +12,7 @@ from optuna.samplers import TPESampler
 from sklearn.preprocessing import OneHotEncoder
 import joblib
 
-data_folder = '../../../data/final_training_data_GHI_SunAngle_Solarinsolation'
+data_folder = '../../../data/final_training_data'
 
 all_data = []
 
