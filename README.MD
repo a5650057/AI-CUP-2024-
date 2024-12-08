@@ -108,9 +108,16 @@
 10. 執行 `sun_Azimuth_elevation_angle_addtoData.py`：
     - 將相對應時間的太陽高度角與方位角添加到訓練集和測試集中。
 
-11. 執行 `Solar_Insolation_LinearInterpolation.py`：
-    - 將每小時的太陽日射量進行線性插值，變為每 10 分鐘一筆資料。
-    - 輸出：`Solar_Insolation_10min.csv`
+11.   透過 https://agr.cwa.gov.tw/history/station_hour 拿到花蓮全天空日射量 (詳細請見底部圖片)
+
+   -  假設拿到的資料為 "72T250_item_hour_20241208234803.csv"
+
+   -  執行 `Solarinsolation_filter.py`:
+   - 將太陽日射量 過濾到剩下每日5點到19點
+
+   - 執行 `Solar_Insolation_LinearInterpolation.py`：
+   - 將每小時的太陽日射量進行線性插值，變為每 10 分鐘一筆資料。
+   - 輸出：`Solar_Insolation_10min.csv`
 
 12. 執行 `add_Solar_Insolation_toDATA.py`：
     - 將太陽日射量插入到訓練集和測試集中。
@@ -130,3 +137,11 @@
 ### openweather定時戳中央氣象署API獲得溫度與紫外線
 
 `openweather.py`
+
+
+###  農業站 全天空日射量
+https://agr.cwa.gov.tw/history/station_hour
+
+
+![alt text](image.png)
+

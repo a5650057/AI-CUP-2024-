@@ -126,7 +126,7 @@ def save_json_to_csv(data, filename):
 
 
 def job():
-    AUTHORIZATION_KEY = "APIKEY"  
+    AUTHORIZATION_KEY = "CWA-A6D73978-FC8C-490B-B3AE-A12A4DB34274"  
     weather_data = get_weather_data(auth_key=AUTHORIZATION_KEY)
     if weather_data:
         filename = "weather_data_hualian.csv"
