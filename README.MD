@@ -140,7 +140,6 @@
 
 
 ###  農業站 全天空日射量
-https://agr.cwa.gov.tw/history/station_hour
 
 
 ![alt text](image.png)
